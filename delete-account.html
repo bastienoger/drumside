@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>DrumSide Account Deletion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F5F5F7; --surface: #FFFFFF; --surface2: #EDEEF2; --border: #E1E3E8;
+    --text: #101217; --dim: #5C6370; --accent: #FFB547; --accent-end: #FF6B5B;
+    --link: #C2412F; --accent-wash: rgba(255, 107, 91, 0.10); --good: #14935F;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0A0B0F; --surface: #14161C; --surface2: #1D2028; --border: #272B35;
+      --text: #F4F5F7; --dim: #9299A6; --link: #FFB547;
+      --accent-wash: rgba(255, 181, 71, 0.12); --good: #3DDC97; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0A0B0F; --surface: #14161C; --surface2: #1D2028; --border: #272B35;
+    --text: #F4F5F7; --dim: #9299A6; --link: #FFB547;
+    --accent-wash: rgba(255, 181, 71, 0.12); --good: #3DDC97; color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 15px; line-height: 1.55; padding-inline: 20px; -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { text-wrap: balance; letter-spacing: -0.01em; }
+  a { color: var(--link); }
+  .page { max-width: 720px; margin: 0 auto; }
+  .mast {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+    display: flex; align-items: center; gap: 12px; padding-block: 14px;
+    background: var(--bg); border-bottom: 1px solid var(--border);
+  }
+  .mark {
+    width: 34px; height: 34px; border-radius: 10px; flex: none;
+    background: linear-gradient(135deg, var(--accent), var(--accent-end));
+    display: flex; align-items: center; justify-content: center;
+  }
+  .mark svg { width: 18px; height: 18px; }
+  .mast-app { font-weight: 800; font-size: 14.5px; }
+  .mast-page { font-size: 12px; color: var(--dim); }
+  .hero { padding-block: 28px 8px; }
+  .eyebrow { font-size: 11.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--link); margin-bottom: 10px; }
+  h1 { font-size: 30px; font-weight: 800; margin: 0 0 8px; letter-spacing: -0.02em; }
+  .lede { color: var(--dim); font-size: 15.5px; max-width: 60ch; margin: 0; }
+  .updated { font-size: 12.5px; color: var(--dim); margin-top: 14px; }
+  nav.toc { display: flex; gap: 8px; overflow-x: auto; padding-block: 16px 4px; scrollbar-width: none; }
+  nav.toc::-webkit-scrollbar { display: none; }
+  nav.toc a {
+    flex: none; text-decoration: none; color: var(--text); background: var(--surface);
+    border: 1px solid var(--border); padding: 7px 13px; border-radius: 999px; font-size: 12.5px; font-weight: 600;
+  }
+  nav.toc a:focus-visible, .copybtn:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+  .summary { background: var(--accent-wash); border: 1px solid var(--border); border-radius: 18px; padding: 18px 20px; margin-block: 20px; }
+  .summary h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 12px; color: var(--dim); }
+  .summary ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .summary li { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; }
+  .summary li svg { flex: none; width: 17px; height: 17px; margin-top: 1px; color: var(--good); }
+  section.card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 18px;
+    padding: 22px 22px 24px; margin-block: 14px; scroll-margin-top: 72px;
+  }
+  section.card h2 { font-size: 19px; font-weight: 800; margin: 0 0 4px; display: flex; align-items: baseline; gap: 9px; }
+  section.card .num { font-size: 12px; font-weight: 700; color: var(--dim); font-variant-numeric: tabular-nums; }
+  section.card > p.intro { color: var(--dim); margin: 6px 0 16px; font-size: 14px; }
+  section.card h3 { font-size: 14.5px; font-weight: 700; margin: 18px 0 6px; }
+  section.card h3:first-of-type { margin-top: 4px; }
+  section.card p { margin: 8px 0; }
+  section.card ul { margin: 8px 0; padding-left: 20px; }
+  section.card li { margin: 4px 0; }
+  .pill { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+  .pill.local { background: rgba(61, 220, 151, 0.14); color: var(--good); }
+  .pill.cloud { background: var(--accent-wash); color: var(--link); }
+  .tablewrap { overflow-x: auto; margin: 14px 0; border: 1px solid var(--border); border-radius: 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 560px; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  thead th { background: var(--surface2); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--dim); font-weight: 700; }
+  tbody tr:last-child td { border-bottom: none; }
+  .contact { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; background: var(--surface2); border-radius: 12px; padding: 12px 14px; margin-top: 10px; }
+  .contact code { font-size: 14px; font-weight: 600; user-select: all; }
+  .copybtn { border: 1px solid var(--border); background: var(--surface); color: var(--text); font: inherit; font-size: 12.5px; font-weight: 600; padding: 6px 12px; border-radius: 999px; cursor: pointer; }
+  footer { color: var(--dim); font-size: 12.5px; padding-block: 26px 40px; text-align: center; }
+  @media (max-width: 480px) { h1 { font-size: 25px; } section.card { padding: 18px 16px 20px; } }
+</style>
+<style>
+  .options { display: grid; gap: 14px; grid-template-columns: 1fr 1fr; margin-block: 20px; }
+  @media (max-width: 620px) { .options { grid-template-columns: 1fr; } }
+  .option { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+  .option .tag { align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; }
+  .option.fast .tag { background: rgba(61, 220, 151, 0.14); color: var(--good); }
+  .option.slow .tag { background: var(--accent-wash); color: var(--link); }
+  .option h2 { font-size: 17px; font-weight: 800; margin: 0; }
+  .option p { margin: 0; color: var(--dim); font-size: 13.5px; }
+  .option ol { margin: 4px 0 0; padding-left: 20px; font-size: 13.5px; }
+  .option li { margin: 6px 0; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+  @media (max-width: 560px) { .grid2 { grid-template-columns: 1fr; } }
+  .grid2 h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 8px; color: var(--dim); }
+  .grid2 ul { margin: 0; padding-left: 18px; font-size: 13.5px; }
+  .template { background: var(--surface2); border-radius: 12px; padding: 14px 16px; margin-top: 12px; font-size: 13px; color: var(--dim); white-space: pre-wrap; border: 1px dashed var(--border); }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="mast">
+    <div class="mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="9" r="6.4" stroke="#1B1206" stroke-width="1.6"/><path d="M9.5 7.5v3.6M12 6.6v5.4M14.5 7.9v2.8" stroke="#1B1206" stroke-width="1.6" stroke-linecap="round"/><path d="M4.5 18c1.6-1.9 4.4-3 7.5-3s5.9 1.1 7.5 3" stroke="#1B1206" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+    <div>
+      <div class="mast-app">DrumSide</div>
+      <div class="mast-page">Account &amp; Data Deletion</div>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="eyebrow">DrumSide · by Bastien Oger</div>
+    <h1>Delete your DrumSide account and data</h1>
+    <p class="lede">You can delete your DrumSide account and everything tied to it at any time: from inside the app in seconds, or by email if you no longer have the app.</p>
+    <p class="updated">Effective 25 September 2026 · Applies to DrumSide on Android and iOS</p>
+  </div>
+
+  <div class="options">
+    <div class="option fast">
+      <span class="tag">In the app · immediate</span>
+      <h2>Delete from DrumSide</h2>
+      <p>The fastest way. Your account is removed right away.</p>
+      <ol>
+        <li>Open DrumSide and sign in</li>
+        <li>Tap your <b>profile picture</b>, top right of Home</li>
+        <li>Scroll to <b>Account → Delete account</b></li>
+        <li>Confirm. You may be asked to re-enter your password first</li>
+      </ol>
+    </div>
+    <div class="option slow">
+      <span class="tag">By email · within 7 days</span>
+      <h2>Delete without the app</h2>
+      <p>Lost your phone, or already uninstalled? Email us and we'll delete it for you.</p>
+      <ol>
+        <li>Email <b>drumsideapp@outlook.com</b></li>
+        <li>Write from the address on your account, or tell us your display name</li>
+        <li>Ask us to delete your account</li>
+        <li>We delete it and confirm by email within 7 days</li>
+      </ol>
+    </div>
+  </div>
+
+  <section class="card">
+    <h2>What gets deleted</h2>
+    <p class="intro">Both methods remove the same things.</p>
+    <div class="grid2">
+      <div>
+        <h3>Deleted</h3>
+        <ul>
+          <li>Your email, password and display name</li>
+          <li>Your Google account link, if you signed in that way</li>
+          <li>Grooves and fills you shared to the Community, and your votes</li>
+          <li>The link between your account and your Premium subscription record</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Kept or not affected</h3>
+        <ul>
+          <li>Purchase records that tax and accounting law require us or the app stores to keep, for the legally required period</li>
+          <li>Reports you sent about other patterns, kept up to 12 months to handle abuse, without your name</li>
+          <li>Practice history, streaks and saved patterns on your device. These were never on our servers; uninstalling the app deletes them</li>
+          <li>Your Premium subscription itself. Cancel it in Google Play or the App Store, or you'll keep being billed</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Delete some data, keep your account</h2>
+    <p class="intro">You don't have to delete your account to remove data.</p>
+    <ul>
+      <li><b>A shared groove</b>: open it in the Community tab and choose Remove</li>
+      <li><b>Anything else</b> (for example your votes): email us and we'll remove it within 7 days</li>
+    </ul>
+  </section>
+
+  <section class="card" id="contact">
+    <h2>Request by email</h2>
+    <p class="intro">No account or app needed. Just send us a message.</p>
+    <div class="contact">
+      <code id="email">drumsideapp@outlook.com</code>
+      <button class="copybtn" id="copybtn" type="button">Copy address</button>
+    </div>
+    <div class="template">Subject: Delete my DrumSide account
+
+Please delete my DrumSide account and all associated data.
+Account email: [your email or Google account]
+Display name shown in the app (if you remember it): [optional]</div>
+  </section>
+
+  <footer>DrumSide, your drum practice partner. See also the <a href="https://bastienoger.github.io/drumside/privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</footer>
+</div>
+
+<script>
+  (function () {
+    var btn = document.getElementById('copybtn');
+    var email = document.getElementById('email');
+    if (!btn || !email) return;
+    function selectFallback() {
+      var range = document.createRange();
+      range.selectNodeContents(email);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+    }
+    btn.addEventListener('click', function () {
+      var done = function () {
+        btn.textContent = 'Copied';
+        setTimeout(function () { btn.textContent = 'Copy address'; }, 1500);
+      };
+      try { navigator.clipboard.writeText(email.textContent).then(done, selectFallback); }
+      catch (e) { selectFallback(); }
+    });
+  })();
+</script>
+
+</body>
+</html>

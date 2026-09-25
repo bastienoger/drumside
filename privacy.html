@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>DrumSide Privacy Policy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F5F5F7; --surface: #FFFFFF; --surface2: #EDEEF2; --border: #E1E3E8;
+    --text: #101217; --dim: #5C6370; --accent: #FFB547; --accent-end: #FF6B5B;
+    --link: #C2412F; --accent-wash: rgba(255, 107, 91, 0.10); --good: #14935F;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0A0B0F; --surface: #14161C; --surface2: #1D2028; --border: #272B35;
+      --text: #F4F5F7; --dim: #9299A6; --link: #FFB547;
+      --accent-wash: rgba(255, 181, 71, 0.12); --good: #3DDC97; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0A0B0F; --surface: #14161C; --surface2: #1D2028; --border: #272B35;
+    --text: #F4F5F7; --dim: #9299A6; --link: #FFB547;
+    --accent-wash: rgba(255, 181, 71, 0.12); --good: #3DDC97; color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 15px; line-height: 1.55; padding-inline: 20px; -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { text-wrap: balance; letter-spacing: -0.01em; }
+  a { color: var(--link); }
+  .page { max-width: 720px; margin: 0 auto; }
+  .mast {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+    display: flex; align-items: center; gap: 12px; padding-block: 14px;
+    background: var(--bg); border-bottom: 1px solid var(--border);
+  }
+  .mark {
+    width: 34px; height: 34px; border-radius: 10px; flex: none;
+    background: linear-gradient(135deg, var(--accent), var(--accent-end));
+    display: flex; align-items: center; justify-content: center;
+  }
+  .mark svg { width: 18px; height: 18px; }
+  .mast-app { font-weight: 800; font-size: 14.5px; }
+  .mast-page { font-size: 12px; color: var(--dim); }
+  .hero { padding-block: 28px 8px; }
+  .eyebrow { font-size: 11.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--link); margin-bottom: 10px; }
+  h1 { font-size: 30px; font-weight: 800; margin: 0 0 8px; letter-spacing: -0.02em; }
+  .lede { color: var(--dim); font-size: 15.5px; max-width: 60ch; margin: 0; }
+  .updated { font-size: 12.5px; color: var(--dim); margin-top: 14px; }
+  nav.toc { display: flex; gap: 8px; overflow-x: auto; padding-block: 16px 4px; scrollbar-width: none; }
+  nav.toc::-webkit-scrollbar { display: none; }
+  nav.toc a {
+    flex: none; text-decoration: none; color: var(--text); background: var(--surface);
+    border: 1px solid var(--border); padding: 7px 13px; border-radius: 999px; font-size: 12.5px; font-weight: 600;
+  }
+  nav.toc a:focus-visible, .copybtn:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+  .summary { background: var(--accent-wash); border: 1px solid var(--border); border-radius: 18px; padding: 18px 20px; margin-block: 20px; }
+  .summary h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 12px; color: var(--dim); }
+  .summary ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .summary li { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; }
+  .summary li svg { flex: none; width: 17px; height: 17px; margin-top: 1px; color: var(--good); }
+  section.card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 18px;
+    padding: 22px 22px 24px; margin-block: 14px; scroll-margin-top: 72px;
+  }
+  section.card h2 { font-size: 19px; font-weight: 800; margin: 0 0 4px; display: flex; align-items: baseline; gap: 9px; }
+  section.card .num { font-size: 12px; font-weight: 700; color: var(--dim); font-variant-numeric: tabular-nums; }
+  section.card > p.intro { color: var(--dim); margin: 6px 0 16px; font-size: 14px; }
+  section.card h3 { font-size: 14.5px; font-weight: 700; margin: 18px 0 6px; }
+  section.card h3:first-of-type { margin-top: 4px; }
+  section.card p { margin: 8px 0; }
+  section.card ul { margin: 8px 0; padding-left: 20px; }
+  section.card li { margin: 4px 0; }
+  .pill { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+  .pill.local { background: rgba(61, 220, 151, 0.14); color: var(--good); }
+  .pill.cloud { background: var(--accent-wash); color: var(--link); }
+  .tablewrap { overflow-x: auto; margin: 14px 0; border: 1px solid var(--border); border-radius: 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 560px; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  thead th { background: var(--surface2); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--dim); font-weight: 700; }
+  tbody tr:last-child td { border-bottom: none; }
+  .contact { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; background: var(--surface2); border-radius: 12px; padding: 12px 14px; margin-top: 10px; }
+  .contact code { font-size: 14px; font-weight: 600; user-select: all; }
+  .copybtn { border: 1px solid var(--border); background: var(--surface); color: var(--text); font: inherit; font-size: 12.5px; font-weight: 600; padding: 6px 12px; border-radius: 999px; cursor: pointer; }
+  footer { color: var(--dim); font-size: 12.5px; padding-block: 26px 40px; text-align: center; }
+  @media (max-width: 480px) { h1 { font-size: 25px; } section.card { padding: 18px 16px 20px; } }
+</style>
+
+</head>
+<body>
+<div class="page">
+  <div class="mast">
+    <div class="mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="9" r="6.4" stroke="#1B1206" stroke-width="1.6"/><path d="M9.5 7.5v3.6M12 6.6v5.4M14.5 7.9v2.8" stroke="#1B1206" stroke-width="1.6" stroke-linecap="round"/><path d="M4.5 18c1.6-1.9 4.4-3 7.5-3s5.9 1.1 7.5 3" stroke="#1B1206" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+    <div>
+      <div class="mast-app">DrumSide</div>
+      <div class="mast-page">Privacy Policy</div>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="eyebrow">Privacy Policy</div>
+    <h1>Your data, in plain terms</h1>
+    <p class="lede">DrumSide is a drum practice app. This page explains what it collects, what stays only on your phone, why we use each piece of data, how long we keep it, and the rights you have over it.</p>
+    <p class="updated">Effective 25 September 2026 · Applies to the DrumSide app on Android and iOS</p>
+  </div>
+
+  <nav class="toc" aria-label="Sections">
+    <a href="#who">Who we are</a>
+    <a href="#collect">What we collect</a>
+    <a href="#device">On your device</a>
+    <a href="#account">Your account</a>
+    <a href="#community">Community</a>
+    <a href="#premium">Premium</a>
+    <a href="#legal">Legal bases</a>
+    <a href="#retention">Retention</a>
+    <a href="#sharing">Third parties</a>
+    <a href="#transfers">Transfers</a>
+    <a href="#rights">Your rights</a>
+    <a href="#children">Children</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="summary">
+    <h2>In short</h2>
+    <ul>
+      <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Practice works entirely offline. Your saved patterns, favorites, tempos and streaks stay on your device. We never see them.</span></li>
+      <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>A profile is optional. If you create one, we store your email and display name so your account, purchases and shared grooves stay tied to you.</span></li>
+      <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Sharing a groove in the Community makes that pattern and your display name visible to other DrumSide users.</span></li>
+      <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>DrumSide Premium is billed by Google Play or the App Store. We never see your card details.</span></li>
+      <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>No ads, no analytics, no ad tracking, and we never sell your data.</span></li>
+      <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>You can delete your account and everything tied to it at any time, from the app or by email.</span></li>
+    </ul>
+  </div>
+
+  <section class="card" id="who">
+    <h2><span class="num">01</span> Who is responsible for your data</h2>
+    <p>DrumSide is developed and published by <b>Bastien Oger</b>, an independent developer based in France. He is the data controller for the personal data described in this policy, within the meaning of the EU General Data Protection Regulation (GDPR).</p>
+    <p>For any question or request about your data, write to <b>drumsideapp@outlook.com</b> (see <a href="#contact">Contact</a>).</p>
+  </section>
+
+  <section class="card" id="collect">
+    <h2><span class="num">02</span> What we collect, feature by feature</h2>
+    <p class="intro">DrumSide works fully offline out of the box. Only the features below use a network connection, and each is optional.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>If you use…</th><th>We collect</th><th>Stored</th></tr></thead>
+        <tbody>
+          <tr><td>Just practicing, no profile</td><td>Nothing leaves your phone</td><td><span class="pill local">device only</span></td></tr>
+          <tr><td>Creating a profile</td><td>Email address, display name, password (stored hashed), or your Google account ID, name, email and profile photo if you sign in with Google</td><td><span class="pill cloud">Firebase Auth</span></td></tr>
+          <tr><td>Practice tracking, Studio patterns</td><td>Levels, streaks, saved grooves and fills, tempos, favorites</td><td><span class="pill local">device only</span></td></tr>
+          <tr><td>Sharing to the Community</td><td>The pattern itself, your display name, votes you cast</td><td><span class="pill cloud">Cloud Firestore</span></td></tr>
+          <tr><td>Reporting a shared pattern</td><td>The pattern ID, the reason you give, your account ID (never shown to other users)</td><td><span class="pill cloud">Cloud Firestore</span></td></tr>
+          <tr><td>DrumSide Premium</td><td>An app user ID, subscription status and purchase history. Never your card or payment details</td><td><span class="pill cloud">RevenueCat</span></td></tr>
+          <tr><td>Practice reminders</td><td>Nothing sent anywhere. Reminders are scheduled locally by your phone</td><td><span class="pill local">device only</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>All data sent from the app to our services is encrypted in transit (HTTPS/TLS).</p>
+  </section>
+
+  <section class="card" id="device">
+    <h2><span class="num">03</span> What stays on your device</h2>
+    <p class="intro">Everything you'd use without creating a profile works with no network access at all.</p>
+    <ul>
+      <li>Your saved grooves, fills and exercises, and anything you write in the Studio</li>
+      <li>Favorites, tempo settings, click and count-in preferences, and theme</li>
+      <li>Practice minutes, skill levels, your daily streak and titles earned</li>
+      <li>The last exercise you opened, so DrumSide can offer to continue it</li>
+    </ul>
+    <p>We can't read this data, back it up, or recover it if you lose your phone. Uninstalling the app deletes it.</p>
+  </section>
+
+  <section class="card" id="account">
+    <h2><span class="num">04</span> Your account</h2>
+    <p class="intro">A profile is optional. It lets your Premium subscription and community activity follow you if you change phones.</p>
+    <p>Signing up with email stores that email address, a display name you choose, and a securely hashed password, handled by Google's Firebase Authentication. Signing up with Google shares your Google account's name, email and profile photo with us.</p>
+    <p>We use this only to identify your account, show your display name on grooves you share, and send account email (verification, password reset). We never send marketing email.</p>
+  </section>
+
+  <section class="card" id="community">
+    <h2><span class="num">05</span> Community grooves</h2>
+    <p class="intro">The Community tab lets drummers share grooves and fills and vote on them. Sharing something makes it visible to every DrumSide user.</p>
+    <ul>
+      <li>A shared pattern includes its notation, your display name, and the votes it receives</li>
+      <li>Anyone in the app can play, view or vote on a pattern you share</li>
+      <li>You can remove your own shared pattern at any time from the Community screen</li>
+      <li>Reporting a pattern sends its ID and your reason to us. Other users never see who reported it</li>
+    </ul>
+  </section>
+
+  <section class="card" id="premium">
+    <h2><span class="num">06</span> Payments and DrumSide Premium</h2>
+    <p class="intro">Subscriptions are billed entirely by Google Play or Apple's App Store. DrumSide never handles or stores your payment details.</p>
+    <p>We use RevenueCat to check which subscription is active on your account across devices. RevenueCat receives an app user ID and your DrumSide purchase history. If you're signed in, that ID is your DrumSide account ID, so Premium can follow you to a new phone. RevenueCat never receives your name, email or card number from us.</p>
+    <p>You manage or cancel your subscription in your Google Play or App Store subscription settings. The Premium screen in the app links there.</p>
+  </section>
+
+  <section class="card" id="legal">
+    <h2><span class="num">07</span> Why we use your data (legal bases)</h2>
+    <p class="intro">Under the GDPR, every use of personal data needs a legal basis. These are ours.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Purpose</th><th>Legal basis</th></tr></thead>
+        <tbody>
+          <tr><td>Creating and running your account, signing you in, account email</td><td>Performance of our contract with you (GDPR art. 6(1)(b))</td></tr>
+          <tr><td>Publishing grooves you choose to share, and your votes</td><td>Performance of our contract with you (art. 6(1)(b))</td></tr>
+          <tr><td>Checking your Premium subscription across devices</td><td>Performance of our contract with you (art. 6(1)(b))</td></tr>
+          <tr><td>Handling reports, preventing spam and abuse, keeping the service secure</td><td>Our legitimate interest in a safe community (art. 6(1)(f))</td></tr>
+          <tr><td>Keeping purchase records required by tax and accounting rules</td><td>Legal obligation (art. 6(1)(c))</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card" id="retention">
+    <h2><span class="num">08</span> How long we keep it</h2>
+    <ul>
+      <li><b>Account data</b> (email, display name, sign-in details): until you delete your account.</li>
+      <li><b>Shared grooves and votes</b>: until you remove them or delete your account.</li>
+      <li><b>Reports</b>: until they're reviewed, then up to 12 months to handle repeat abuse, then deleted.</li>
+      <li><b>Subscription records</b> at RevenueCat: while your account exists, then as long as tax and accounting law requires.</li>
+      <li><b>On-device data</b>: until you delete it or uninstall the app.</li>
+    </ul>
+    <p>When you delete your account, your account data, shared grooves and votes are removed from our systems. Requests by email are handled within 7 days.</p>
+  </section>
+
+  <section class="card" id="sharing">
+    <h2><span class="num">09</span> Who else processes this data</h2>
+    <p class="intro">We don't sell data, and we don't run ads or analytics. The only outside services are the ones that make accounts, the community and Premium work. They act as our processors.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Service</th><th>Used for</th><th>Their policy</th></tr></thead>
+        <tbody>
+          <tr><td>Google Firebase (Authentication and Cloud Firestore)</td><td>Accounts, sign-in, community storage</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td></tr>
+          <tr><td>Google Sign-In</td><td>Signing in with a Google account</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td></tr>
+          <tr><td>RevenueCat</td><td>Subscription status across devices</td><td><a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a></td></tr>
+          <tr><td>Google Play / Apple App Store</td><td>Billing for DrumSide Premium</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google</a> / <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>We may disclose account information if the law requires it, or to investigate abuse of the community feature (spam, harassment, impersonation).</p>
+  </section>
+
+  <section class="card" id="transfers">
+    <h2><span class="num">10</span> Transfers outside the EU</h2>
+    <p>Google and RevenueCat may process data in the United States and other countries outside the European Economic Area. These transfers are covered by the safeguards those providers offer, such as the EU–U.S. Data Privacy Framework and the European Commission's Standard Contractual Clauses.</p>
+  </section>
+
+  <section class="card" id="rights">
+    <h2><span class="num">11</span> Your rights and choices</h2>
+    <p class="intro">Wherever you live, you can use these rights. If you're in the EU or UK, the GDPR guarantees them.</p>
+    <ul>
+      <li><b>Access and portability</b>: get a copy of the account data we hold, in a common format</li>
+      <li><b>Correction</b>: fix your display name in the app, or ask us to correct anything else</li>
+      <li><b>Deletion</b>: delete your account in the app, or ask us by email</li>
+      <li><b>Objection and restriction</b>: object to, or ask us to limit, uses based on our legitimate interest</li>
+      <li><b>Complaint</b>: you can complain to your data protection authority. In France, that's the CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener">cnil.fr</a>)</li>
+    </ul>
+    <h3>Delete your account</h3>
+    <p>Profile → Account → Delete account removes your sign-in, email, display name, shared grooves and votes from our systems. You can also ask by email. See the <a href="https://bastienoger.github.io/drumside/delete-account.html" target="_blank" rel="noopener">account deletion page</a> for details.</p>
+    <h3>Delete a shared pattern</h3>
+    <p>Open it from the Community tab and choose Remove. It disappears from every user's app.</p>
+    <h3>Delete everything local</h3>
+    <p>Uninstalling DrumSide removes all on-device data. We never received it, so there's nothing for us to delete.</p>
+    <p>We answer rights requests within one month.</p>
+  </section>
+
+  <section class="card" id="children">
+    <h2><span class="num">12</span> Children's privacy</h2>
+    <p>DrumSide is for a general audience learning drums and is not directed at children under 13. We don't knowingly collect personal data from children under 13. In France, if you're under 15, ask a parent or guardian before creating a profile (in other countries, check your local age). If you believe a child has created an account, contact us and we'll delete it.</p>
+  </section>
+
+  <section class="card">
+    <h2><span class="num">13</span> Security and changes</h2>
+    <p>Account data is stored with Firebase's standard encryption in transit and at rest. No method of transmission or storage is perfectly secure, and we can't guarantee absolute protection.</p>
+    <p>If this policy changes, we'll update the date at the top of this page. For significant changes, we'll also tell you inside the app.</p>
+  </section>
+
+  <section class="card" id="contact">
+    <h2><span class="num">14</span> Contact</h2>
+    <p class="intro">Questions about this policy, or a request about your data: write to the developer directly.</p>
+    <div class="contact">
+      <code id="email">drumsideapp@outlook.com</code>
+      <button class="copybtn" id="copybtn" type="button">Copy address</button>
+    </div>
+    <p>Bastien Oger, France</p>
+  </section>
+
+  <footer>DrumSide, your drum practice partner. This policy covers the DrumSide app only.</footer>
+</div>
+
+<script>
+  (function () {
+    var btn = document.getElementById('copybtn');
+    var email = document.getElementById('email');
+    if (!btn || !email) return;
+    function selectFallback() {
+      var range = document.createRange();
+      range.selectNodeContents(email);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+    }
+    btn.addEventListener('click', function () {
+      var done = function () {
+        btn.textContent = 'Copied';
+        setTimeout(function () { btn.textContent = 'Copy address'; }, 1500);
+      };
+      try { navigator.clipboard.writeText(email.textContent).then(done, selectFallback); }
+      catch (e) { selectFallback(); }
+    });
+  })();
+</script>
+
+</body>
+</html>
