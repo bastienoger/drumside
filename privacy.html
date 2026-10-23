@@ -109,7 +109,7 @@
     <div class="eyebrow">Privacy Policy</div>
     <h1>Your data, in plain terms</h1>
     <p class="lede">DrumSide is a drum practice app. This page explains what it collects, what stays only on your phone, why we use each piece of data, how long we keep it, and the rights you have over it.</p>
-    <p class="updated">Effective 16 October 2026 · Applies to the DrumSide app on Android and iOS</p>
+    <p class="updated">Effective 23 October 2026 · Applies to the DrumSide app on Android and iOS</p>
   </div>
 
   <nav class="toc" aria-label="Sections">
@@ -135,7 +135,7 @@
       <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>A profile is optional. If you create one, we store your email and display name so your account, purchases and shared grooves stay tied to you.</span></li>
       <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Sharing a groove in the Community makes that pattern and your display name visible to other DrumSide users.</span></li>
       <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>DrumSide Premium is billed by Google Play or the App Store. We never see your card details.</span></li>
-      <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>No ads, no analytics, no ad tracking, and we never sell your data.</span></li>
+      <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>No ads, no analytics, no ad tracking, and we never sell your data. When the app crashes, it sends a crash report so we can fix it. You can turn that off.</span></li>
       <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>You can delete your account and everything tied to it at any time, from the app or by email.</span></li>
     </ul>
   </div>
@@ -153,7 +153,7 @@
       <table>
         <thead><tr><th>If you use…</th><th>We collect</th><th>Stored</th></tr></thead>
         <tbody>
-          <tr><td>Just practicing, no profile</td><td>Nothing leaves your phone</td><td><span class="pill local">device only</span></td></tr>
+          <tr><td>Just practicing, no profile</td><td>Nothing leaves your phone, apart from crash reports (below)</td><td><span class="pill local">device only</span></td></tr>
           <tr><td>Creating a profile</td><td>Email address, display name, password (stored hashed), or your Google account ID, name, email and profile photo if you sign in with Google</td><td><span class="pill cloud">Firebase Auth</span></td></tr>
           <tr><td>Practice tracking, Studio patterns (no profile, or backup turned off)</td><td>Levels, streaks, saved grooves and fills, tempos, favorites</td><td><span class="pill local">device only</span></td></tr>
           <tr><td>Account backup (with a profile, on unless you turn it off)</td><td>A copy of your practice data: saved items, tempos, Studio patterns, practice minutes, levels and streaks, practice settings, and a random ID for the phone that made the backup</td><td><span class="pill cloud">Cloud Firestore</span></td></tr>
@@ -161,6 +161,7 @@
           <tr><td>Reporting a shared pattern</td><td>The pattern ID, the reason you give, your account ID (never shown to other users)</td><td><span class="pill cloud">Cloud Firestore</span></td></tr>
           <tr><td>DrumSide Premium</td><td>An app user ID, subscription status and purchase history. Never your card or payment details</td><td><span class="pill cloud">RevenueCat</span></td></tr>
           <tr><td>Practice reminders</td><td>Nothing sent anywhere. Reminders are scheduled locally by your phone</td><td><span class="pill local">device only</span></td></tr>
+          <tr><td>Crash reports (on unless you turn them off in You → Send crash reports)</td><td>When the app crashes or hits an error: what went wrong and where in the app's code, the phone model, Android or iOS version, app version, free memory and disk space, and a random installation ID. Never your name, email, account or what you play</td><td><span class="pill cloud">Firebase Crashlytics</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -216,6 +217,7 @@
           <tr><td>Publishing grooves you choose to share, and your votes</td><td>Performance of our contract with you (art. 6(1)(b))</td></tr>
           <tr><td>Checking your Premium subscription across devices</td><td>Performance of our contract with you (art. 6(1)(b))</td></tr>
           <tr><td>Backing up your practice data to your account and restoring it</td><td>Performance of our contract with you (art. 6(1)(b))</td></tr>
+          <tr><td>Crash reports, to find and fix bugs</td><td>Our legitimate interest in an app that works (art. 6(1)(f)). You can turn them off at any time</td></tr>
           <tr><td>Handling reports, preventing spam and abuse, keeping the service secure</td><td>Our legitimate interest in a safe community (art. 6(1)(f))</td></tr>
           <tr><td>Keeping purchase records required by tax and accounting rules</td><td>Legal obligation (art. 6(1)(c))</td></tr>
         </tbody>
@@ -231,6 +233,7 @@
       <li><b>Reports</b>: until they're reviewed, then up to 12 months to handle repeat abuse, then deleted.</li>
       <li><b>Subscription records</b> at RevenueCat: while your account exists, then as long as tax and accounting law requires.</li>
       <li><b>Account backup</b>: until you delete your account. Turning backup off stops updating it.</li>
+      <li><b>Crash reports</b>: 90 days, then deleted automatically by Crashlytics.</li>
       <li><b>On-device data</b>: until you delete it or uninstall the app.</li>
     </ul>
     <p>When you delete your account, your account data, backup, shared grooves and votes are removed from our systems. Requests by email are handled within 7 days.</p>
@@ -238,12 +241,13 @@
 
   <section class="card" id="sharing">
     <h2><span class="num">09</span> Who else processes this data</h2>
-    <p class="intro">We don't sell data, and we don't run ads or analytics. The only outside services are the ones that make accounts, the community and Premium work. They act as our processors.</p>
+    <p class="intro">We don't sell data, and we don't run ads or analytics. The only outside services are the ones that make accounts, the community, Premium and crash reports work. They act as our processors.</p>
     <div class="tablewrap">
       <table>
         <thead><tr><th>Service</th><th>Used for</th><th>Their policy</th></tr></thead>
         <tbody>
           <tr><td>Google Firebase (Authentication and Cloud Firestore)</td><td>Accounts, sign-in, community storage, account backup</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td></tr>
+          <tr><td>Google Firebase Crashlytics</td><td>Crash reports</td><td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com/support/privacy</a></td></tr>
           <tr><td>Google Sign-In</td><td>Signing in with a Google account</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td></tr>
           <tr><td>RevenueCat</td><td>Subscription status across devices</td><td><a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a></td></tr>
           <tr><td>Google Play / Apple App Store</td><td>Billing for DrumSide Premium</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google</a> / <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple</a></td></tr>
@@ -265,7 +269,7 @@
       <li><b>Access and portability</b>: get a copy of the account data we hold, in a common format</li>
       <li><b>Correction</b>: fix your display name in the app, or ask us to correct anything else</li>
       <li><b>Deletion</b>: delete your account in the app, or ask us by email</li>
-      <li><b>Objection and restriction</b>: object to, or ask us to limit, uses based on our legitimate interest</li>
+      <li><b>Objection and restriction</b>: object to, or ask us to limit, uses based on our legitimate interest. For crash reports, just turn off You → Send crash reports</li>
       <li><b>Complaint</b>: you can complain to your data protection authority. In France, that's the CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener">cnil.fr</a>)</li>
     </ul>
     <h3>Delete your account</h3>
