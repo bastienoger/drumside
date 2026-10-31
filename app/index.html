@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>DrumSide · Drum practice app</title>
+<meta name="description" content="Drum lessons with real drum notation: grooves, fills, rudiments and a metronome built for drummers.">
+<meta property="og:title" content="DrumSide">
+<meta property="og:description" content="Drum lessons with real drum notation: grooves, fills, rudiments and a metronome built for drummers.">
+<meta property="og:image" content="https://bastienoger.github.io/drumside/app/icon.png">
+<meta property="og:url" content="https://bastienoger.github.io/drumside/app/">
+<meta name="theme-color" content="#1B1A40">
+<link rel="icon" href="icon.png">
+<style>
+:root{--bg:#1B1A40;--bg2:#2A2666;--fg:#F5F5F7;--muted:#B9B8D6;--gold:#ECD27E}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:var(--fg);
+background:radial-gradient(circle at 50% 0%,var(--bg2),var(--bg) 70%);background-color:var(--bg);
+display:flex;align-items:center;justify-content:center;padding:32px 16px;text-align:center}
+main{max-width:420px;width:100%}
+.icon{width:128px;height:128px;border-radius:28px;box-shadow:0 12px 32px rgba(0,0,0,.45)}
+h1{font-size:2.2rem;margin:20px 0 6px;letter-spacing:.5px}
+.tagline{color:var(--muted);font-size:1.05rem;line-height:1.5;margin:0 0 28px}
+.play{display:flex;align-items:center;justify-content:center;gap:14px;width:100%;padding:16px 20px;
+border-radius:16px;background:#000;color:#fff;text-decoration:none;border:1px solid #5c5c66;
+box-shadow:0 6px 18px rgba(0,0,0,.35);-webkit-tap-highlight-color:transparent}
+.play:active{transform:scale(.98)}
+.play svg{width:34px;height:38px;flex:none}
+.play span{display:flex;flex-direction:column;align-items:flex-start;line-height:1.15}
+.play small{font-size:.75rem;letter-spacing:.5px;text-transform:uppercase}
+.play b{font-size:1.45rem;font-weight:600}
+.hint{color:var(--muted);font-size:.85rem;margin:18px 0 0;line-height:1.5}
+.hint a{color:var(--gold)}
+footer{margin-top:40px;font-size:.8rem;color:var(--muted)}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<main>
+<img class="icon" src="icon.png" width="128" height="128" alt="DrumSide icon">
+<h1>DrumSide</h1>
+<p class="tagline" id="tagline">Drum lessons with real drum notation: grooves, fills, rudiments and a metronome built for drummers.</p>
+
+<a class="play" id="play" href="https://play.google.com/store/apps/details?id=com.ogerbastien.drum_trainer&amp;referrer=utm_source%3Dinstagram">
+<svg viewBox="0 0 30 34" aria-hidden="true">
+<path d="M1.2.6 17 16.9 1.2 33.2C.8 32.9.5 32.3.5 31.6V2.2C.5 1.5.8.9 1.2.6z" fill="#00D7FE"/>
+<path d="M22.3 22.2 17 16.9l5.3-5.3 6.3 3.6c1.8 1 1.8 2.7 0 3.7l-6.3 3.3z" fill="#FFCE00"/>
+<path d="M22.3 22.2 17 16.9 1.2 33.2c.6.6 1.5.7 2.6.1l18.5-11.1z" fill="#FF3A44"/>
+<path d="M22.3 11.6 3.8.5C2.7-.1 1.8 0 1.2.6L17 16.9l5.3-5.3z" fill="#00F076"/>
+</svg>
+<span><small id="get">Get it on</small><b>Google Play</b></span>
+</a>
+
+<p class="hint" id="hint">Nothing happens? Tap ⋯ at the top right and choose “Open in browser”, or search “DrumSide” in the Play Store.</p>
+
+<footer><a href="../privacy.html" id="privacy">Privacy Policy</a> · <a href="../terms.html" id="terms">Terms of Use</a></footer>
+</main>
+<script>
+(function(){
+  var pkg='com.ogerbastien.drum_trainer';
+  var web='https://play.google.com/store/apps/details?id='+pkg+'&referrer=utm_source%3Dinstagram';
+  var ua=navigator.userAgent||'';
+  // On Android, open the Play Store app directly with an intent: in-app browsers
+  // (Instagram, Facebook) often swallow plain play.google.com links.
+  // The fallback URL is used if the Play Store app is missing.
+  if(/Android/i.test(ua)){
+    document.getElementById('play').href='intent://details?id='+pkg+'&referrer=utm_source%3Dinstagram'
+      +'#Intent;scheme=market;package=com.android.vending;S.browser_fallback_url='+encodeURIComponent(web)+';end';
+  }
+  var lang=(navigator.language||'en').slice(0,2).toLowerCase();
+  var t={
+    fr:{tagline:'Cours de batterie avec de vraies partitions : grooves, breaks, rudiments et un métronome pensé pour les batteurs.',
+        get:'Disponible sur',hint:'Rien ne se passe ? Touche ⋯ en haut à droite puis « Ouvrir dans le navigateur », ou cherche « DrumSide » dans le Play Store.',
+        privacy:'Confidentialité',terms:'Conditions d’utilisation'},
+    de:{tagline:'Schlagzeugunterricht mit echten Drum-Noten: Grooves, Fills, Rudiments und ein Metronom für Drummer.',
+        get:'Jetzt bei',hint:'Passiert nichts? Tippe oben rechts auf ⋯ und wähle „Im Browser öffnen“, oder suche „DrumSide“ im Play Store.',
+        privacy:'Datenschutz',terms:'Nutzungsbedingungen'},
+    es:{tagline:'Clases de batería con partituras reales: grooves, redobles, rudimentos y un metrónomo pensado para bateristas.',
+        get:'Disponible en',hint:'¿No pasa nada? Toca ⋯ arriba a la derecha y elige «Abrir en el navegador», o busca «DrumSide» en Play Store.',
+        privacy:'Privacidad',terms:'Condiciones de uso'},
+    it:{tagline:'Lezioni di batteria con vere partiture: groove, fill, rudimenti e un metronomo pensato per i batteristi.',
+        get:'Disponibile su',hint:'Non succede nulla? Tocca ⋯ in alto a destra e scegli «Apri nel browser», oppure cerca «DrumSide» sul Play Store.',
+        privacy:'Privacy',terms:'Condizioni d’uso'}
+  }[lang];
+  if(t){
+    document.documentElement.lang=lang;
+    for(var k in t){var el=document.getElementById(k); if(el) el.textContent=t[k];}
+  }
+})();
+</script>
+</body>
+</html>
