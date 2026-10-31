@@ -14,11 +14,10 @@
 <style>
 :root{--bg:#1B1A40;--bg2:#2A2666;--fg:#F5F5F7;--muted:#B9B8D6;--gold:#ECD27E}
 *{box-sizing:border-box}
-html,body{margin:0;height:100%}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:var(--fg);
-background:radial-gradient(circle at 50% 0%,var(--bg2),var(--bg) 70%);background-color:var(--bg);
-display:flex;align-items:center;justify-content:center;padding:32px 16px;text-align:center}
-main{max-width:420px;width:100%}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;background:var(--bg)}
+body{margin:0;width:100%;min-height:100vh;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:var(--fg);
+background:var(--bg) radial-gradient(circle at 50% 0%,var(--bg2),var(--bg) 70%) no-repeat;text-align:center}
+main{display:block;max-width:420px;margin:0 auto;padding:12vh 16px 32px}
 .icon{width:128px;height:128px;border-radius:28px;box-shadow:0 12px 32px rgba(0,0,0,.45)}
 h1{font-size:2.2rem;margin:20px 0 6px;letter-spacing:.5px}
 .tagline{color:var(--muted);font-size:1.05rem;line-height:1.5;margin:0 0 28px}
@@ -29,7 +28,7 @@ box-shadow:0 6px 18px rgba(0,0,0,.35);-webkit-tap-highlight-color:transparent}
 .play svg{width:34px;height:38px;flex:none}
 .play span{display:flex;flex-direction:column;align-items:flex-start;line-height:1.15}
 .play small{font-size:.75rem;letter-spacing:.5px;text-transform:uppercase}
-.play b{font-size:1.45rem;font-weight:600}
+.play b{font-size:1.45rem;font-weight:600;white-space:nowrap}
 .hint{color:var(--muted);font-size:.85rem;margin:18px 0 0;line-height:1.5}
 .hint a{color:var(--gold)}
 footer{margin-top:40px;font-size:.8rem;color:var(--muted)}
