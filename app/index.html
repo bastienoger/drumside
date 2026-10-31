@@ -68,7 +68,16 @@ footer a{color:var(--muted)}
     document.getElementById('play').href='intent://details?id='+pkg+'&referrer=utm_source%3Dinstagram'
       +'#Intent;scheme=market;package=com.android.vending;S.browser_fallback_url='+encodeURIComponent(web)+';end';
   }
-  var lang=(navigator.language||'en').slice(0,2).toLowerCase();
+  // Pick the first supported language from: ?lang=xx, the app locale that
+  // Instagram/Facebook put in their user agent (e.g. "fr_FR", "FBLC/fr_FR"),
+  // then the browser's preferred languages.
+  var supported={en:1,fr:1,de:1,es:1,it:1};
+  var cands=[];
+  var q=/[?&]lang=([a-z]{2})/i.exec(location.search); if(q) cands.push(q[1]);
+  var m=/FBLC\/([a-z]{2})_/i.exec(ua)||/Instagram[^(]*\([^)]*;\s*([a-z]{2})_[A-Z]{2}\s*;/.exec(ua); if(m) cands.push(m[1]);
+  cands=cands.concat(navigator.languages||[],[navigator.language||'en']);
+  var lang='en';
+  for(var i=0;i<cands.length;i++){var c=String(cands[i]).slice(0,2).toLowerCase(); if(supported[c]){lang=c;break;}}
   var t={
     fr:{tagline:'Cours de batterie avec de vraies partitions : grooves, breaks, rudiments et un métronome pensé pour les batteurs.',
         get:'Disponible sur',hint:'Rien ne se passe ? Touche ⋯ en haut à droite puis « Ouvrir dans le navigateur », ou cherche « DrumSide » dans le Play Store.',
