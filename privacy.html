@@ -109,7 +109,7 @@
     <div class="eyebrow">Privacy Policy</div>
     <h1>Your data, in plain terms</h1>
     <p class="lede">DrumSide is a drum practice app. This page explains what it collects, what stays only on your phone, why we use each piece of data, how long we keep it, and the rights you have over it.</p>
-    <p class="updated">Effective 18 November 2026 · Applies to the DrumSide app on Android and iOS</p>
+    <p class="updated">Effective 23 November 2026 · Applies to the DrumSide app on Android and iOS</p>
   </div>
 
   <nav class="toc" aria-label="Sections">
@@ -161,6 +161,7 @@
           <tr><td>Reporting a shared pattern</td><td>The pattern ID, the reason you give, your account ID (never shown to other users)</td><td><span class="pill cloud">Cloud Firestore</span></td></tr>
           <tr><td>DrumSide Premium</td><td>An app user ID, subscription status and purchase history. Never your card or payment details</td><td><span class="pill cloud">RevenueCat</span></td></tr>
           <tr><td>Practice reminders</td><td>Nothing sent anywhere. Reminders are scheduled locally by your phone</td><td><span class="pill local">device only</span></td></tr>
+          <tr><td>Time check (pad timing with the microphone)</td><td>Nothing sent anywhere. With your permission, the microphone listens only while a Time check or its set-up is playing. The sound is analysed on your phone to time your strokes, then discarded: it is never saved or sent. Your scores and how the click sounds on your phone (from the set-up) are kept with your practice data</td><td><span class="pill local">device only</span></td></tr>
           <tr><td>Crash reports (on unless you turn them off in You → Send crash reports)</td><td>When the app crashes or hits an error: what went wrong and where in the app's code, the phone model, Android or iOS version, app version, free memory and disk space, and a random installation ID. Never your name, email, account or what you play</td><td><span class="pill cloud">Firebase Crashlytics</span></td></tr>
           <tr><td>Anonymous usage counts (on unless you turn them off in You → Send anonymous usage counts)</td><td>A +1 on shared daily totals for all users together, at most once a day or once per install for each step: opened the app, opened it from a notification, practised, started the free 5-minute session, finished onboarding, skipped it or left it straight for the app, picked the beginner level, first practice, first completed session, saw the Premium page, started Premium, turned reminders on or was refused notifications, came back 1, 2, 3, 7 or 30 days after installing, practised the day after installing. No account, no device or installation ID, nothing you play. Only the totals are stored</td><td><span class="pill cloud">Cloud Firestore</span></td></tr>
         </tbody>
@@ -176,6 +177,7 @@
       <li>Your saved grooves, fills and exercises, and anything you write in the Studio</li>
       <li>Favorites, tempo settings, click and count-in preferences, and theme</li>
       <li>Practice minutes, skill levels, your daily streak and titles earned</li>
+      <li>Time check scores, and what the Time check set-up learnt about your phone's speaker and microphone (never any recording)</li>
       <li>The last exercise you opened, so DrumSide can offer to continue it</li>
     </ul>
     <p>Without a profile, we can't read this data, back it up, or recover it if you lose your phone. Uninstalling the app deletes it.</p>
