@@ -135,7 +135,7 @@
       <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>A profile is optional. If you create one, we store your email and display name so your account, purchases and shared grooves stay tied to you.</span></li>
       <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Sharing a groove in the Community makes that pattern and your display name visible to other DrumSide users.</span></li>
       <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>DrumSide Premium is billed by Google Play or the App Store. We never see your card details.</span></li>
-      <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>No ads, no ad tracking, no analytics SDK, and we never sell your data. When the app crashes, it sends a crash report so we can fix it. It also adds 1 to anonymous daily totals, like &ldquo;opened the app today&rdquo;, with no ID attached. You can turn either off.</span></li>
+      <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>No ads, no ad tracking, no analytics SDK, and we never sell your data. When the app crashes, it sends a crash report so we can fix it. It also adds 1 to anonymous daily totals, like &ldquo;opened the app today&rdquo;, with no ID attached. Now and then we send a notification about new features or a Premium offer. You can turn any of these off.</span></li>
       <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>You can delete your account and everything tied to it at any time, from the app or by email.</span></li>
     </ul>
   </div>
@@ -161,8 +161,9 @@
           <tr><td>Reporting a shared pattern</td><td>The pattern ID, the reason you give, your account ID (never shown to other users)</td><td><span class="pill cloud">Cloud Firestore</span></td></tr>
           <tr><td>DrumSide Premium</td><td>An app user ID, subscription status and purchase history. Never your card or payment details</td><td><span class="pill cloud">RevenueCat</span></td></tr>
           <tr><td>Practice reminders</td><td>Nothing sent anywhere. Reminders are scheduled locally by your phone</td><td><span class="pill local">device only</span></td></tr>
+          <tr><td>News and offers notifications (on unless you turn them off with the News and offers switch, next to the practice reminders in Progress)</td><td>A push token, a random ID that lets Google deliver notifications to this installation, and the groups it follows: your app language, and whether you have Premium (subscribers don't get Premium offers). Never your name, email, account or what you play. Nothing is shown unless you allow DrumSide's notifications on your phone</td><td><span class="pill cloud">Firebase Cloud Messaging</span></td></tr>
           <tr><td>Crash reports (on unless you turn them off in You → Send crash reports)</td><td>When the app crashes or hits an error: what went wrong and where in the app's code, the phone model, Android or iOS version, app version, free memory and disk space, and a random installation ID. Never your name, email, account or what you play</td><td><span class="pill cloud">Firebase Crashlytics</span></td></tr>
-          <tr><td>Anonymous usage counts (on unless you turn them off in You → Send anonymous usage counts)</td><td>A +1 on shared daily totals for all users together, at most once a day or once per install for each step: opened the app, opened it from a notification, practised, started the free 5-minute session, finished onboarding, skipped it or left it straight for the app, picked the beginner level, first practice, first completed session, saw the Premium page, started Premium, turned reminders on or was refused notifications, came back 1, 2, 3, 7 or 30 days after installing, practised the day after installing. No account, no device or installation ID, nothing you play. Only the totals are stored</td><td><span class="pill cloud">Cloud Firestore</span></td></tr>
+          <tr><td>Anonymous usage counts (on unless you turn them off in You → Send anonymous usage counts)</td><td>A +1 on shared daily totals for all users together, at most once a day or once per install for each step: opened the app, opened it from a notification, opened a news or offer notification, practised, started the free 5-minute session, finished onboarding, skipped it or left it straight for the app, picked the beginner level, first practice, first completed session, saw the Premium page, started Premium, turned reminders on or was refused notifications, came back 1, 2, 3, 7 or 30 days after installing, practised the day after installing. No account, no device or installation ID, nothing you play. Only the totals are stored</td><td><span class="pill cloud">Cloud Firestore</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -219,6 +220,7 @@
           <tr><td>Checking your Premium subscription across devices</td><td>Performance of our contract with you (art. 6(1)(b))</td></tr>
           <tr><td>Backing up your practice data to your account and restoring it</td><td>Performance of our contract with you (art. 6(1)(b))</td></tr>
           <tr><td>Crash reports, to find and fix bugs</td><td>Our legitimate interest in an app that works (art. 6(1)(f)). You can turn them off at any time</td></tr>
+          <tr><td>News and offers notifications, about new features and DrumSide Premium</td><td>Your consent, given by allowing DrumSide's notifications on your phone. You can withdraw it at any time with the News and offers switch or in your phone's settings</td></tr>
           <tr><td>Anonymous usage counts, to see whether new users find their way in and come back</td><td>Our legitimate interest in improving the app (art. 6(1)(f)). Only totals are kept, with no identifier, and you can turn them off at any time</td></tr>
           <tr><td>Handling reports, preventing spam and abuse, keeping the service secure</td><td>Our legitimate interest in a safe community (art. 6(1)(f))</td></tr>
           <tr><td>Keeping purchase records required by tax and accounting rules</td><td>Legal obligation (art. 6(1)(c))</td></tr>
@@ -236,6 +238,7 @@
       <li><b>Subscription records</b> at RevenueCat: while your account exists, then as long as tax and accounting law requires.</li>
       <li><b>Account backup</b>: until you delete your account. Turning backup off stops updating it.</li>
       <li><b>Crash reports</b>: 90 days, then deleted automatically by Crashlytics.</li>
+      <li><b>Push token</b>: until you turn news and offers off or uninstall the app. Firebase deletes tokens that stay unused for 270 days.</li>
       <li><b>Anonymous usage counts</b>: daily totals with nothing that points to a person, kept as long as they are useful.</li>
       <li><b>On-device data</b>: until you delete it or uninstall the app.</li>
     </ul>
@@ -244,13 +247,14 @@
 
   <section class="card" id="sharing">
     <h2><span class="num">09</span> Who else processes this data</h2>
-    <p class="intro">We don't sell data, and we don't run ads or an analytics service. The only outside services are the ones that make accounts, the community, Premium, crash reports and the anonymous usage counts work. They act as our processors.</p>
+    <p class="intro">We don't sell data, and we don't run ads or an analytics service. The only outside services are the ones that make accounts, the community, Premium, news and offers notifications, crash reports and the anonymous usage counts work. They act as our processors.</p>
     <div class="tablewrap">
       <table>
         <thead><tr><th>Service</th><th>Used for</th><th>Their policy</th></tr></thead>
         <tbody>
           <tr><td>Google Firebase (Authentication and Cloud Firestore)</td><td>Accounts, sign-in, community storage, account backup, anonymous usage totals</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td></tr>
           <tr><td>Google Firebase Crashlytics</td><td>Crash reports</td><td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com/support/privacy</a></td></tr>
+          <tr><td>Google Firebase Cloud Messaging</td><td>News and offers notifications</td><td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com/support/privacy</a></td></tr>
           <tr><td>Google Sign-In</td><td>Signing in with a Google account</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td></tr>
           <tr><td>RevenueCat</td><td>Subscription status across devices</td><td><a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a></td></tr>
           <tr><td>Google Play / Apple App Store</td><td>Billing for DrumSide Premium</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google</a> / <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple</a></td></tr>
@@ -272,6 +276,7 @@
       <li><b>Access and portability</b>: get a copy of the account data we hold, in a common format</li>
       <li><b>Correction</b>: fix your display name in the app, or ask us to correct anything else</li>
       <li><b>Deletion</b>: delete your account in the app, or ask us by email</li>
+      <li><b>Withdrawing consent</b>: turn off the News and offers switch, or DrumSide's notifications in your phone's settings, and no more news or offers reach you</li>
       <li><b>Objection and restriction</b>: object to, or ask us to limit, uses based on our legitimate interest. For crash reports or usage counts, just turn off You → Send crash reports or You → Send anonymous usage counts</li>
       <li><b>Complaint</b>: you can complain to your data protection authority. In France, that's the CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener">cnil.fr</a>)</li>
     </ul>
